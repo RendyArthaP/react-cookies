@@ -1,7 +1,9 @@
 import Cookies from 'js-cookie'
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
+  const history = useHistory()
   const [login, setLogin] = useState({
     email: "",
     password: ""
@@ -20,6 +22,7 @@ const Login = () => {
     Cookies.set("user", login)
     Cookies.set("token", "1234568")
     setAuth(true)
+    history.push('/home')
   }
   return (
     <div>
